@@ -1,0 +1,354 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.9881163218385414 -0.07736656853772773 -0.1328177269379706 1.3929946253740617
+  position 0.13257703853230196 9.906836290971286 2.5777018895963186
+}
+TexturedBackground {
+  texture "stadium"
+  luminosity 0.2
+}
+TexturedBackgroundLight {
+  texture "stadium"
+  luminosity 0
+}
+Robot {
+  translation -2.27379 0.0819211 2.22926
+  rotation -0.11601801585208674 0.9932391357109308 -0.003979860543787049 -0.06842530717958617
+  scale 2 2 2
+  children [
+    DistanceSensor {
+      translation -0.04 -0.026 -0.08
+      rotation 0.7071067811865476 -0.7071067811865476 -3.390498950813652e-09 3.14159
+      name "ir3"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.04 -0.026 -0.08
+      rotation 0.7071067811865476 -0.7071067811865476 -3.390498950813652e-09 3.14159
+      name "ir1"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0 -0.026 -0.08
+      rotation 0 0 1 -1.5707953071795862
+      name "ir2"
+      type "infra-red"
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        position 35.28734711788993
+        anchor 0 -0.03 -0.1
+      }
+      jointParameters2 JointParameters {
+        position -25.759126244455572
+        axis 0 1 0
+      }
+      jointParameters3 JointParameters {
+        position 8.311932654625295
+      }
+      endPoint DEF ESPHERE Solid {
+        translation 3.166162171747048e-05 -0.029985324581939806 -0.09998750210062343
+        rotation 0.6430158655535095 -0.7654900939944435 0.02356931570600508 2.5599959621729194
+        children [
+          DEF SPHERE Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 1 0
+              }
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE SPHERE
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 8.788130443979756e-09
+        anchor 0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens2"
+        }
+        RotationalMotor {
+          name "m2"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.059999993591669576 1.307788611327392e-06 0.049999999297836384
+        rotation 1.917880410035447e-09 -1.8114669026717276e-09 0.9999999999999999 1.570799999727769
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -7.177321869079826e-09
+        anchor -0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens1"
+        }
+        RotationalMotor {
+          name "m1"
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation -0.059999994914986865 1.3073342579440468e-06 0.05000000251112302
+        rotation -2.241942851928448e-09 2.2961983682651557e-09 0.9999999999999999 1.570799999898579
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "p2_controller"
+}
+YoubotFlag {
+  translation 2.18 0 -2.19
+}
+RectangleArena {
+  floorSize 5 5
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "C:/Users/artur/Documents/wwwwww3e.jpg"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+    }
+    roughness 0.2
+    metalness 0
+  }
+  wallThickness 0.1
+  wallHeight 0.5
+}
+PipeSection {
+  translation -2.2 0.16 1.49
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 0.74 0.160003 1.49
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(14)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 0.74 0.160003 0.1
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(19)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 2.26 0.160004 0.099998
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(21)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -2.2 0.16 -0.01
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(1)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -2.2 0.16 -1.44
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(5)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 2.23 0.160006 -1.47
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(12)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -1.48 0.16 -0.75
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(3)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -1.48 0.16 -2.25
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(10)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 0.04 0.16 -2.25
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(11)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 1.43 0.16 -2.25
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(17)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 1.48 0.16 -0.76
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(18)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 5.77385e-14 0.16 -0.75
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(7)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -0.78 0.16 -0.0100013
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(4)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -0.78 0.16 -1.47
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(9)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 0.7 0.16 -1.47
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(13)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -0.78 0.16 1.53
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(8)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 2.28 0.160003 1.51
+  rotation -0.5773489358556709 -0.5773509358554486 0.5773509358554486 2.094395307179586
+  name "pipe section(22)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation -1.43 0.16 0.77
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(2)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 0.04 0.16 0.77
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(6)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 1.52 0.16 0.77
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(20)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 1.51 0.16 2.19
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(15)"
+  height 1
+  radius 0.25
+}
+PipeSection {
+  translation 0.0399972 0.16 2.21
+  rotation 0.70710578118615 0.707107781185531 5.085758426212298e-09 3.14159
+  name "pipe section(16)"
+  height 1
+  radius 0.25
+}
+Floor {
+  size 5 5
+  tileSize 1 1
+}
+WoodenBox {
+  translation -2.2 0.3 -2.23
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation -0.74 0.3 0.77
+  name "wooden box(4)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation 0.74 0.3 -2.21
+  name "wooden box(1)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation 2.26 0.3 2.25
+  name "wooden box(3)"
+  size 0.5 0.5 0.5
+}
+WoodenBox {
+  translation -1.46 0.3 2.22
+  name "wooden box(2)"
+  size 1 0.5 0.5
+}

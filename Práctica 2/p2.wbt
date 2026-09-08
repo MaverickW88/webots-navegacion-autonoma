@@ -1,0 +1,161 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.6524067890173167 -0.5742150044590836 -0.4946134958714421 1.6957424401514691
+  position -0.30475653351259496 1.1654974884496072 0.1950473631659591
+}
+TexturedBackground {
+  texture "stadium"
+  luminosity 0.2
+}
+TexturedBackgroundLight {
+  texture "stadium"
+}
+Robot {
+  translation -0.257477 0.0201724 0.0268743
+  rotation -0.010059801402545077 0.9999151394089206 -0.008277341154033127 0.193905
+  scale 0.5 0.5 0.5
+  children [
+    DistanceSensor {
+      translation -0.04 -0.026 -0.08
+      rotation 0.7071067811865476 -0.7071067811865476 -3.390498950813652e-09 3.14159
+      name "ir3"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.04 -0.026 -0.08
+      rotation 0.7071067811865476 -0.7071067811865476 -3.390498950813652e-09 3.14159
+      name "ir1"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0 -0.026 -0.08
+      rotation 0 0 1 -1.5707953071795862
+      name "ir2"
+      type "infra-red"
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        position 35.24369927891797
+        anchor 0 -0.03 -0.1
+      }
+      jointParameters2 JointParameters {
+        position -21.89370305356417
+        axis 0 1 0
+      }
+      jointParameters3 JointParameters {
+        position 8.074968028152341
+      }
+      endPoint DEF ESPHERE Solid {
+        translation -7.272978800136218e-06 -0.030004042353627695 -0.1000100398399134
+        rotation -0.8599596996910172 0.3004264398767896 0.4125691083082851 4.988505153927414
+        children [
+          DEF SPHERE Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 1 0
+              }
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE SPHERE
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.36264156848267e-11
+        anchor 0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens2"
+        }
+        RotationalMotor {
+          name "m2"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.06 0 0.05
+        rotation -2.5949330669797713e-09 2.7007096301159195e-09 1 1.5707999997936164
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.4442648992369575e-11
+        anchor -0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens1"
+        }
+        RotationalMotor {
+          name "m1"
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation -0.06 0 0.05
+        rotation 1.3635848917863214e-09 -1.3099596941543274e-09 1 1.5707999998493678
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "p2_controller"
+}
+RectangleArena {
+  floorSize 0.65 0.5
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "C:/Users/artur/Documents/wwwwww3e.jpg"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+    }
+    roughness 0.2
+    metalness 0
+  }
+  wallHeight 0.05
+}

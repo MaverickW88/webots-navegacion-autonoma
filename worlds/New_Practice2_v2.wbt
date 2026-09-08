@@ -1,0 +1,153 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.37277526415468953 -0.8991680172606301 -0.2292061935681251 4.8260320423940755
+  position 1.1820311765947367 0.8745672378809577 0.00013337181196024228
+}
+TexturedBackground {
+  texture "stadium"
+  luminosity 0.2
+}
+TexturedBackgroundLight {
+  texture "stadium"
+}
+Robot {
+  translation 0.2252611904749958 0.03955530675297406 -0.045525871463950866
+  rotation -0.0015916181782876632 0.9999974589613335 0.0015965031946765318 1.5707024192923829
+  children [
+    DistanceSensor {
+      translation 0 -0.11 -0.11
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        position 30.028037357230605
+        anchor 0 -0.03 -0.1
+      }
+      jointParameters2 JointParameters {
+        position -16.919266321363647
+        axis 0 1 0
+      }
+      jointParameters3 JointParameters {
+        position 4.383065684413981
+      }
+      endPoint DEF ESPHERE Solid {
+        translation 3.7774013084135305e-11 -0.029992507337721123 -0.09999997611610281
+        rotation -0.3181720336784006 -0.9405826972683439 -0.11862017781287286 2.8129610230280186
+        children [
+          DEF SPHERE Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 1 0
+              }
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE SPHERE
+        physics Physics {
+        }
+        linearVelocity -1.6428135500174994e-05 1.1716945614355642e-05 5.405013468989213e-07
+        angularVelocity 5.405013471485006e-05 8.199127789777334 0.0016428135513932298
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 12.499999856655634
+        anchor 0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens2"
+        }
+        RotationalMotor {
+          name "m2"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.06 0 0.05
+        rotation -0.03316091856479116 0.0331610404706772 0.9988997441559596 1.5719008611353704
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity -1.3868269022750332e-05 -3.062865449254237e-06 4.481757302016412e-08
+        angularVelocity -1.3199018581850103e-07 3.249586650969704e-06 -9.973610520509832e-05
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 15.499999859818832
+        anchor -0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens1"
+        }
+        RotationalMotor {
+          name "m1"
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation -0.06 0 0.05
+        rotation 0.7051880998972501 -0.7051906900923709 0.0735923526621591 2.9946733352771493
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+        linearVelocity -1.3473831679165706e-05 -3.0461839364682728e-06 5.4679820296985156e-08
+        angularVelocity -1.323831730195986e-07 3.249586605155941e-06 -9.97359927222546e-05
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "Final_delivery_Practice1"
+  linearVelocity -1.340443975459493e-05 1.8708091272969792e-06 2.1184841319532574e-07
+  angularVelocity -1.3216981294210044e-07 3.249582958826554e-06 -9.97290068139061e-05
+}
+RectangleArena {
+  floorSize 0.65 0.5
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "C:/Users/Humberto Guzman G/Documents/Tec/9no semestre/Taller de Robótica/Fondos/line5.png"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+    }
+    roughness 0.2
+    metalness 0
+  }
+  wallHeight 0.05
+}

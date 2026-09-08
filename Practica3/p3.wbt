@@ -1,0 +1,244 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.06457880100722703 0.8595394573298252 0.5069728787160303 3.4981821972295273
+  position -3.1477310462203976 11.789752060138484 -7.027317142596354
+}
+TexturedBackground {
+  texture "stadium"
+  luminosity 0.2
+}
+TexturedBackgroundLight {
+  texture "stadium"
+}
+Robot {
+  translation 2.15602 0.150399 1.0563
+  rotation -3.378209961499437e-05 0.9999999886032652 -0.00014714699832300468 3.07368
+  scale 2.5 2.5 2.5
+  children [
+    DistanceSensor {
+      translation -0.04 -0.026 -0.08
+      rotation 0.7071067811865476 -0.7071067811865476 -3.390498950813652e-09 3.14159
+      name "ir3"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.04 -0.026 -0.08
+      rotation 0.7071067811865476 -0.7071067811865476 -3.390498950813652e-09 3.14159
+      name "ir1"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0 -0.026 -0.08
+      rotation 0 0 1 -1.5707953071795862
+      name "ir2"
+      type "infra-red"
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        position 35.24370525800784
+        anchor 0 -0.03 -0.1
+      }
+      jointParameters2 JointParameters {
+        position -21.893548589426803
+        axis 0 1 0
+      }
+      jointParameters3 JointParameters {
+        position 8.07473337564276
+      }
+      endPoint DEF ESPHERE Solid {
+        translation 6.220852902202969e-07 -0.03001251112627565 -0.10000303678921567
+        rotation 0.17163291902602612 -0.9749965219063558 0.14115212848949432 1.3470800559748601
+        children [
+          DEF SPHERE Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 1 0
+              }
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE SPHERE
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 9.96008461387077e-11
+        anchor 0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens2"
+        }
+        RotationalMotor {
+          name "m2"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.059999993591669576 1.3077886113211511e-06 0.04999999929782476
+        rotation -2.5259689130335505e-09 2.6323987423875037e-09 0.9999999999999999 1.570799999727769
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.5416134775916655e-11
+        anchor -0.06 0 0.05
+      }
+      device [
+        PositionSensor {
+          name "sens1"
+        }
+        RotationalMotor {
+          name "m1"
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation -0.059999994914986865 1.30733425792596e-06 0.05000000251113244
+        rotation 1.3594129218219744e-09 -1.3051706336627155e-09 0.9999999999999999 1.570799999898579
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "p2_controller"
+}
+YoubotFlag {
+  translation 2.19 0 -2.1
+}
+RectangleArena {
+  floorSize 5 5
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "C:/Users/artur/Documents/wwwwww3e.jpg"
+      ]
+      repeatS FALSE
+      repeatT FALSE
+    }
+    roughness 0.2
+    metalness 0
+  }
+  wallThickness 0.1
+  wallHeight 0.5
+}
+Panel {
+  translation -2.51 0 1.13
+  name "panel(2)"
+  size 1.5 0.5 0.055
+}
+Panel {
+  translation -0.48 0 -1.58
+  size 3 0.5 0.055
+}
+Panel {
+  translation -2.51 0 -0.65
+  name "panel(1)"
+  size 2 0.5 0.055
+}
+Panel {
+  translation -0.21 0 2.53
+  rotation 0 1 0 1.5708
+  name "panel(8)"
+  size 2 0.5 0.055
+}
+Panel {
+  translation 0.5 0 0.5
+  name "panel(3)"
+  size 2 0.5 0.055
+}
+Panel {
+  translation -1.16 0 -1.66
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(4)"
+  size 1 0.5 0.055
+}
+Panel {
+  translation -1.78 0 -1.67
+  rotation 0 1 0 1.01503e-06
+  name "panel(13)"
+  size 0.6 0.5 0.055
+}
+Panel {
+  translation -1.66 0 -0.64
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(7)"
+  size 1 0.5 0.055
+}
+Panel {
+  translation 1.64 0 0.5
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(10)"
+  size 1 0.5 0.055
+}
+Panel {
+  translation 0.86 0 1.49
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(11)"
+  size 1 0.5 0.055
+}
+Panel {
+  translation 0.27 0 -1.57
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(12)"
+  size 1 0.5 0.055
+}
+Panel {
+  translation -1.43 0 1.9
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(9)"
+  size 0.6 0.5 0.055
+}
+Panel {
+  translation 1.07 0 -0.52
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(6)"
+  size 1 0.5 0.055
+}
+Panel {
+  translation 1.7 0 -1.58
+  rotation 0 1 0 -1.5707953071795862
+  name "panel(5)"
+  size 1 0.5 0.055
+}

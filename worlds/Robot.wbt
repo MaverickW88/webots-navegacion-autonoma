@@ -1,0 +1,74 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.9809218441252828 0.18950023416190268 0.04338198900970532 5.647230501537501
+  position -0.13409185234019147 0.8775357270581092 1.2787520145149842
+}
+TexturedBackground {
+  texture "noon_cloudy_countryside"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  wallThickness 0.05
+}
+WoodenBox {
+  translation 0.17 0.1 -0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.17 0.1 0.35
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.24 0.1 -0.09
+  size 0.1 0.1 0.1
+}
+Floor {
+}
+Robot {
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.6 0.8 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.05 0.2
+  }
+}

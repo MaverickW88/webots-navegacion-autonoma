@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Archivos de estado de proyecto de Webots (locales de cada máquina, guardan rutas absolutas)
+*.wbproj
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Soluciones de examen: se conservan en disco pero no se suben al repositorio
+examenes_no_publicar_sin_revisar/

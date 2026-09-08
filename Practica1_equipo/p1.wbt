@@ -1,0 +1,116 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.003086270717767162 -0.9999952355076336 -6.241064988043398e-05 3.394395942152832
+  position 0.3074678711367357 0.10802185907021646 -0.9782063863948551
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Robot {
+  translation 0 0.07 -0.04
+  children [
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 -0.03 -0.1
+      }
+      jointParameters2 JointParameters {
+      }
+      jointParameters3 JointParameters {
+      }
+      endPoint DEF ESPHERE Solid {
+        translation 0 -0.03 -0.1
+        rotation -0.6996602705859246 0.7060913006047662 0.10913560818495689 2.9221994333686205
+        children [
+          DEF SPHERE Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 1 0
+              }
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE SPHERE
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "m2"
+          controlPID 10 1 1
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.06 0 0.05
+        rotation 5.3015055813217445e-11 5.27517517914534e-11 1 1.570799999793625
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "m1"
+          controlPID 10 1 1
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation -0.06 0 0.05
+        rotation 2.6946466071831004e-11 2.668284803141059e-11 1 1.570799999849378
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE BODY
+  physics Physics {
+  }
+  controller "my_controller1"
+}
+RectangleArena {
+  wallHeight 0.01
+}

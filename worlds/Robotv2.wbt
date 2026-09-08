@@ -1,0 +1,97 @@
+#VRML_SIM R2020b utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.9984837908756556 -0.03078895036774909 -0.04563069026250104 5.681100374588484
+  position 0.007847526838598677 1.0132464032243558 1.4265056323915921
+}
+TexturedBackground {
+  texture "noon_cloudy_countryside"
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  wallThickness 0.05
+}
+WoodenBox {
+  translation 0.17 0.045 -0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.17 0.045 0.35
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.24 0.045 -0.09
+  size 0.1 0.1 0.1
+}
+Robot {
+  translation 0 0.045 0
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+          name "wheel right"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.6 0.8 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "solid(1)"
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+          name "wheel left"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.6 0.8 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.1 0.05 0.2
+  }
+}
